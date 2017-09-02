@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D140E2BD-67FA-45A1-83E4-35AB8C4D307C}</ProjectGuid>
-    <RootNamespace>CertXSam</RootNamespace>
+    <RootNamespace>AdcsEXitPlus</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -88,7 +88,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PreBuildEvent>
-      <Command>del certxsam_i.c certxsam.h</Command>
+      <Command>del adcsexitplus_i.c adcsexitplus.h</Command>
     </PreBuildEvent>
     <Midl>
       <TypeLibraryName>$(IntDir)%(Filename).tlb</TypeLibraryName>
@@ -98,7 +98,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CERTXSAM_EXPORTS;DBG_CERTSRV;DBG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ADCSEXITPLUS_EXPORTS;DBG_CERTSRV;DBG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <MinimalRebuild>true</MinimalRebuild>
@@ -114,7 +114,7 @@
     <Link>
       <AdditionalOptions>/SAFESEH %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>crypt32.lib;certidl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>certxsam.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>adcsexitplus.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
@@ -124,7 +124,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <PreBuildEvent>
-      <Command>del certxsam_i.c certxsam.h</Command>
+      <Command>del adcsexitplus_i.c adcsexitplus.h</Command>
     </PreBuildEvent>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -135,7 +135,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CERTXSAM_EXPORTS;DBG_CERTSRV;DBG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ADCSEXITPLUS_EXPORTS;DBG_CERTSRV;DBG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <MinimalRebuild>true</MinimalRebuild>
@@ -150,7 +150,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>crypt32.lib;certidl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>certxsam.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>adcsexitplus.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
@@ -160,7 +160,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
-      <Command>del certxsam_i.c certxsam.h</Command>
+      <Command>del adcsexitplus_i.c adcsexitplus.h</Command>
     </PreBuildEvent>
     <Midl>
       <TypeLibraryName>$(IntDir)%(Filename).tlb</TypeLibraryName>
@@ -169,7 +169,7 @@
     </Midl>
     <ClCompile>
       <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CERTXSAM_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ADCSEXITPLUS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level4</WarningLevel>
@@ -179,7 +179,7 @@
     <Link>
       <AdditionalOptions>/SAFESEH %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>crypt32.lib;certidl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>certxsam.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>adcsexitplus.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -191,7 +191,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PreBuildEvent>
-      <Command>del certxsam_i.c certxsam.h</Command>
+      <Command>del adcsexitplus_i.c adcsexitplus.h</Command>
     </PreBuildEvent>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -201,7 +201,7 @@
     </Midl>
     <ClCompile>
       <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CERTXSAM_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ADCSEXITPLUS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level4</WarningLevel>
@@ -210,7 +210,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>crypt32.lib;certidl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>certxsam.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>adcsexitplus.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -224,14 +224,14 @@
     <ClCompile Include="cedebug.cpp" />
     <ClCompile Include="ceerror.cpp" />
     <ClCompile Include="celib.cpp" />
-    <ClCompile Include="certxsam.cpp" />
-    <ClCompile Include="certxsam_i.c" />
+    <ClCompile Include="adcsexitplus.cpp" />
+    <ClCompile Include="adcsexitplus_i.c" />
     <ClCompile Include="exit.cpp" />
     <ClCompile Include="module.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="certxsam.idl">
+    <Midl Include="adcsexitplus.idl">
       <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename).tlb</TypeLibraryName>
       <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).h</HeaderFileName>
       <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_i.c</InterfaceIdentifierFileName>
@@ -243,13 +243,13 @@
     </Midl>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="certxsam.h" />
+    <ClInclude Include="adcsexitplus.h" />
     <ClInclude Include="exit.h" />
     <ClInclude Include="module.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="certxsam.rc">
+    <ResourceCompile Include="adcsexitplus.rc">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

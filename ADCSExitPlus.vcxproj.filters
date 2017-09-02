@@ -24,10 +24,10 @@
     <ClCompile Include="celib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="certxsam.cpp">
+    <ClCompile Include="adcsexitplus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="certxsam_i.c">
+    <ClCompile Include="adcsexitplus_i.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="exit.cpp">
@@ -41,12 +41,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="certxsam.idl">
+    <Midl Include="adcsexitplus.idl">
       <Filter>Source Files</Filter>
     </Midl>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="certxsam.h">
+    <ClInclude Include="adcsexitplus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="exit.h">
@@ -60,7 +60,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="certxsam.rc">
+    <ResourceCompile Include="adcsexitplus.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

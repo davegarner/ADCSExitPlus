@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="CertXSam"
+	Name="ADCSExitPlus"
 	ProjectGUID="{D140E2BD-67FA-45A1-83E4-35AB8C4D307C}"
-	RootNamespace="CertXSam"
+	RootNamespace="ADCSExitPlus"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
@@ -28,7 +28,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="del certxsam_i.c certxsam.h"
+				CommandLine="del adcsexitplus_i.c adcsexitplus.h"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -49,7 +49,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="."
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;CERTXSAM_EXPORTS;DBG_CERTSRV;DBG"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;ADCSEXITPLUS_EXPORTS;DBG_CERTSRV;DBG"
 				GeneratePreprocessedFile="0"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -76,7 +76,7 @@
 				AdditionalOptions="/SAFESEH"
 				AdditionalDependencies="crypt32.lib certidl.lib"
 				LinkIncremental="2"
-				ModuleDefinitionFile="certxsam.def"
+				ModuleDefinitionFile="adcsexitplus.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="2"
@@ -114,7 +114,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="del certxsam_i.c certxsam.h"
+				CommandLine="del adcsexitplus_i.c adcsexitplus.h"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -136,7 +136,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="."
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;CERTXSAM_EXPORTS;DBG_CERTSRV;DBG"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;ADCSEXITPLUS_EXPORTS;DBG_CERTSRV;DBG"
 				GeneratePreprocessedFile="0"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -162,7 +162,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="crypt32.lib certidl.lib"
 				LinkIncremental="2"
-				ModuleDefinitionFile="certxsam.def"
+				ModuleDefinitionFile="adcsexitplus.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="2"
@@ -201,7 +201,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="del certxsam_i.c certxsam.h"
+				CommandLine="del adcsexitplus_i.c adcsexitplus.h"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -221,7 +221,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="."
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;CERTXSAM_EXPORTS"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;ADCSEXITPLUS_EXPORTS"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="4"
@@ -243,7 +243,7 @@
 				AdditionalOptions="/SAFESEH"
 				AdditionalDependencies="crypt32.lib certidl.lib"
 				LinkIncremental="1"
-				ModuleDefinitionFile="certxsam.def"
+				ModuleDefinitionFile="adcsexitplus.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -284,7 +284,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="del certxsam_i.c certxsam.h"
+				CommandLine="del adcsexitplus_i.c adcsexitplus.h"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -305,7 +305,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="."
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;CERTXSAM_EXPORTS"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;ADCSEXITPLUS_EXPORTS"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="4"
@@ -326,7 +326,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="crypt32.lib certidl.lib"
 				LinkIncremental="1"
-				ModuleDefinitionFile="certxsam.def"
+				ModuleDefinitionFile="adcsexitplus.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -379,11 +379,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\certxsam.cpp"
+				RelativePath=".\adcsexitplus.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\certxsam.idl"
+				RelativePath=".\adcsexitplus.idl"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
@@ -423,7 +423,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\certxsam_i.c"
+				RelativePath=".\adcsexitplus_i.c"
 				>
 			</File>
 			<File
@@ -445,7 +445,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\certxsam.h"
+				RelativePath=".\adcsexitplus.h"
 				>
 			</File>
 			<File
@@ -467,7 +467,7 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath=".\certxsam.rc"
+				RelativePath=".\adcsexitplus.rc"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"

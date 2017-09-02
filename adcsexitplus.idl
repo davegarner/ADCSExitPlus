@@ -7,9 +7,9 @@
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
 //
-// File:        certxsam.idl
+// File:        adcsexitplus.idl
 //
-// Contents:    IDL source for certxsam
+// Contents:    IDL source for adcsexitplus
 //
 //---------------------------------------------------------------------------
 

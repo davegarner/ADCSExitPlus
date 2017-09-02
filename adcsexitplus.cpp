@@ -7,7 +7,7 @@
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
 //
-// File:        certxsam.cpp
+// File:        adcsexitplus.cpp
 //
 // Contents:    Cert Server Exit Module implementation
 //
