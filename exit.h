@@ -5,10 +5,11 @@
 // PARTICULAR PURPOSE.
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
+// AGPLv3 2017 Martino Dell'Ambrogio
 //
 // File:        exit.h
 //
-// Contents:    CCertExitSample definition
+// Contents:    CCertExitPlus definition
 //
 //---------------------------------------------------------------------------
 
@@ -32,14 +33,14 @@ exitGetProperty(
 /////////////////////////////////////////////////////////////////////////////
 // certexit
 
-class CCertExitSample: 
-    public CComDualImpl<ICertExit2, &IID_ICertExit2, &LIBID_CERTEXITSAMPLELib>, 
+class CCertExitPlus: 
+    public CComDualImpl<ICertExit2, &IID_ICertExit2, &LIBID_CERTEXITPLUSLib>, 
     public ISupportErrorInfo,
     public CComObjectRoot,
-    public CComCoClass<CCertExitSample, &CLSID_CCertExitSample>
+    public CComCoClass<CCertExitPlus, &CLSID_CCertExitPlus>
 {
 public:
-    CCertExitSample() 
+    CCertExitPlus() 
     { 
         m_strDescription = NULL;
         m_strCAName = NULL;
@@ -48,21 +49,21 @@ public:
         m_dwExitPublishFlags = 0;
         m_cCACert = 0;
     }
-    ~CCertExitSample();
+    ~CCertExitPlus();
 
-BEGIN_COM_MAP(CCertExitSample)
+BEGIN_COM_MAP(CCertExitPlus)
     COM_INTERFACE_ENTRY(IDispatch)
     COM_INTERFACE_ENTRY(ICertExit)
     COM_INTERFACE_ENTRY(ICertExit2)
     COM_INTERFACE_ENTRY(ISupportErrorInfo)
 END_COM_MAP()
 
-DECLARE_NOT_AGGREGATABLE(CCertExitSample) 
+DECLARE_NOT_AGGREGATABLE(CCertExitPlus) 
 
 DECLARE_REGISTRY(
-    CCertExitSample,
-    wszCLASS_CERTEXITSAMPLE TEXT(".1"),
-    wszCLASS_CERTEXITSAMPLE,
+    CCertExitPlus,
+    wszCLASS_CERTEXITPLUS TEXT(".1"),
+    wszCLASS_CERTEXITPLUS,
     IDS_CERTEXIT_DESC,
     THREADFLAGS_BOTH)
 

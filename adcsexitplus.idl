@@ -6,6 +6,7 @@
 // PARTICULAR PURPOSE.
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
+// AGPLv3 2017 Martino Dell'Ambrogio
 //
 // File:        adcsexitplus.idl
 //
@@ -25,27 +26,27 @@ import "certmod.idl";
 [
     uuid(d29571d0-c2c8-11d2-b313-00c04f79dc72),
     version(1.0),
-    helpstring("CertExitSample 1.0 Type Library")
+    helpstring("CertExitPlus 1.0 Type Library")
 ]
 
-library CERTEXITSAMPLELib
+library CERTEXITPLUSLib
 {
     importlib("stdole2.tlb");
 
     [
 	uuid(d2075560-c2c8-11d2-b313-00c04f79dc72),
-	helpstring("CertExitSample Class")
+	helpstring("CertExitPlus Class")
     ]
-    coclass CCertExitSample
+    coclass CCertExitPlus
     {
 	[default] interface ICertExit;
     };
 
     [
 	uuid(d3099410-c2c8-11d2-b313-00c04f79dc72),
-	helpstring("CertManageExitModuleSample Class")
+	helpstring("CertManageExitModulePlus Class")
     ]
-    coclass CCertManageExitModuleSample
+    coclass CCertManageExitModulePlus
     {
 	[default] interface ICertManageModule;
     };

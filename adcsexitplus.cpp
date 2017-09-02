@@ -6,6 +6,7 @@
 // PARTICULAR PURPOSE.
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
+// AGPLv3 2017 Martino Dell'Ambrogio
 //
 // File:        adcsexitplus.cpp
 //
@@ -27,8 +28,8 @@
 CComModule _Module;
 
 BEGIN_OBJECT_MAP(ObjectMap)
-    OBJECT_ENTRY(CLSID_CCertExitSample, CCertExitSample)
-    OBJECT_ENTRY(CLSID_CCertManageExitModuleSample, CCertManageExitModuleSample)
+    OBJECT_ENTRY(CLSID_CCertExitPlus, CCertExitPlus)
+    OBJECT_ENTRY(CLSID_CCertManageExitModulePlus, CCertManageExitModulePlus)
 END_OBJECT_MAP()
 
 

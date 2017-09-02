@@ -5,10 +5,11 @@
 // PARTICULAR PURPOSE.
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
+// AGPLv3 2017 Martino Dell'Ambrogio
 //
 // File:        module.h
 //
-// Contents:    CCertManageExitModuleSample definition
+// Contents:    CCertManageExitModulePlus definition
 //
 //---------------------------------------------------------------------------
 
@@ -16,29 +17,29 @@
 #include "resource.h"       // main symbols
 
 
-class CCertManageExitModuleSample: 
-    public CComDualImpl<ICertManageModule, &IID_ICertManageModule, &LIBID_CERTEXITSAMPLELib>, 
+class CCertManageExitModulePlus: 
+    public CComDualImpl<ICertManageModule, &IID_ICertManageModule, &LIBID_CERTEXITPLUSLib>, 
     public CComObjectRoot,
-    public CComCoClass<CCertManageExitModuleSample, &CLSID_CCertManageExitModuleSample>
+    public CComCoClass<CCertManageExitModulePlus, &CLSID_CCertManageExitModulePlus>
 {
 public:
-    CCertManageExitModuleSample() {}
-    ~CCertManageExitModuleSample() {}
+    CCertManageExitModulePlus() {}
+    ~CCertManageExitModulePlus() {}
 
-BEGIN_COM_MAP(CCertManageExitModuleSample)
+BEGIN_COM_MAP(CCertManageExitModulePlus)
     COM_INTERFACE_ENTRY(IDispatch)
     COM_INTERFACE_ENTRY(ICertManageModule)
 END_COM_MAP()
 
-DECLARE_NOT_AGGREGATABLE(CCertManageExitModuleSample) 
+DECLARE_NOT_AGGREGATABLE(CCertManageExitModulePlus) 
 // Remove the comment from the line above if you don't want your object to 
 // support aggregation.  The default is to support it
 
 // UNDONE UNDONE
 DECLARE_REGISTRY(
-    CCertManageExitModuleSample,
-    wszCLASS_CERTMANAGEEXITMODULESAMPLE TEXT(".1"),
-    wszCLASS_CERTMANAGEEXITMODULESAMPLE,
+    CCertManageExitModulePlus,
+    wszCLASS_CERTMANAGEEXITMODULEPLUS TEXT(".1"),
+    wszCLASS_CERTMANAGEEXITMODULEPLUS,
     IDS_CERTMANAGEEXITMODULE_DESC,    
     THREADFLAGS_BOTH)
 

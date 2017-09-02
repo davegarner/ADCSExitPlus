@@ -5,6 +5,7 @@
 // PARTICULAR PURPOSE.
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
+// AGPLv3 2017 Martino Dell'Ambrogio
 //
 // File:        module.cpp
 //
@@ -24,7 +25,7 @@
 
 
 STDMETHODIMP
-CCertManageExitModuleSample::GetProperty(
+CCertManageExitModulePlus::GetProperty(
     /* [in] */ const BSTR /* strConfig */ ,
     /* [in] */ BSTR /* strStorageLocation */ ,
     /* [in] */ BSTR strPropertyName,
@@ -42,15 +43,15 @@ CCertManageExitModuleSample::GetProperty(
         return S_FALSE;
 
     if (0 == _wcsicmp(strPropertyName, wszCMM_PROP_NAME))
-        szStr = wsz_SAMPLE_NAME;
+        szStr = wsz_PLUS_NAME;
     else if (0 == _wcsicmp(strPropertyName, wszCMM_PROP_DESCRIPTION))
-        szStr = wsz_SAMPLE_DESCRIPTION;
+        szStr = wsz_PLUS_DESCRIPTION;
     else if (0 == _wcsicmp(strPropertyName, wszCMM_PROP_COPYRIGHT))
-        szStr = wsz_SAMPLE_COPYRIGHT;
+        szStr = wsz_PLUS_COPYRIGHT;
     else if (0 == _wcsicmp(strPropertyName, wszCMM_PROP_FILEVER))
-        szStr = wsz_SAMPLE_FILEVER;
+        szStr = wsz_PLUS_FILEVER;
     else if (0 == _wcsicmp(strPropertyName, wszCMM_PROP_PRODUCTVER))
-        szStr = wsz_SAMPLE_PRODUCTVER;
+        szStr = wsz_PLUS_PRODUCTVER;
     else
         return S_FALSE;  
 
@@ -64,7 +65,7 @@ CCertManageExitModuleSample::GetProperty(
 }
         
 STDMETHODIMP 
-CCertManageExitModuleSample::SetProperty(
+CCertManageExitModulePlus::SetProperty(
     /* [in] */ const BSTR /* strConfig */ ,
     /* [in] */ BSTR /* strStorageLocation */ ,
     /* [in] */ BSTR /* strPropertyName */ ,
@@ -76,7 +77,7 @@ CCertManageExitModuleSample::SetProperty(
 }
         
 STDMETHODIMP
-CCertManageExitModuleSample::Configure( 
+CCertManageExitModulePlus::Configure( 
     /* [in] */ const BSTR /* strConfig */ ,
     /* [in] */ BSTR /* strStorageLocation */ ,
     /* [in] */ LONG /* Flags */ )

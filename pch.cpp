@@ -5,6 +5,7 @@
 // PARTICULAR PURPOSE.
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
+// AGPLv3 2017 Martino Dell'Ambrogio
 //
 // File:        pch.cpp
 //
@@ -28,16 +29,16 @@ extern CComModule _Module;
 
 // include this here so managemodule and exitmodule get to see it
 
-#define wszCLASS_CERTEXITSAMPLEPREFIX TEXT("CertAuthority_Sample")
+#define wszCLASS_CERTEXITPLUSPREFIX TEXT("CertAuthority_Plus")
 
-#define wszCLASS_CERTEXITSAMPLE wszCLASS_CERTEXITSAMPLEPREFIX wszCERTEXITMODULE_POSTFIX
-#define wszCLASS_CERTMANAGEEXITMODULESAMPLE wszCLASS_CERTEXITSAMPLEPREFIX wszCERTMANAGEEXIT_POSTFIX
+#define wszCLASS_CERTEXITPLUS wszCLASS_CERTEXITPLUSPREFIX wszCERTEXITMODULE_POSTFIX
+#define wszCLASS_CERTMANAGEEXITMODULEPLUS wszCLASS_CERTEXITPLUSPREFIX wszCERTMANAGEEXIT_POSTFIX
 
-#define wsz_SAMPLE_NAME           L"Sample/Test Exit Module"
-#define wsz_SAMPLE_DESCRIPTION    L"Sample Exit Module"
-#define wsz_SAMPLE_COPYRIGHT      L"(c)1999 Microsoft"
-#define wsz_SAMPLE_FILEVER        L"v 1.0"
-#define wsz_SAMPLE_PRODUCTVER     L"v 5.00"
+#define wsz_PLUS_NAME           L"Plus Exit Module"
+#define wsz_PLUS_DESCRIPTION    L"Plus Exit Module"
+#define wsz_PLUS_COPYRIGHT      L"(c)2017 Martino Dell'Ambrogio"
+#define wsz_PLUS_FILEVER        L"v 1.0"
+#define wsz_PLUS_PRODUCTVER     L"v 5.00"
 
 
 #pragma hdrstop

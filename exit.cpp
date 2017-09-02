@@ -6,10 +6,11 @@
 // PARTICULAR PURPOSE.
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
+// AGPLv3 2017 Martino Dell'Ambrogio
 //
 // File:        exit.cpp
 //
-// Contents:    CCertExitSample implementation
+// Contents:    CCertExitPlus implementation
 //
 //---------------------------------------------------------------------------
 
@@ -85,12 +86,12 @@ error:
 
 
 //+--------------------------------------------------------------------------
-// CCertExitSample::~CCertExitSample -- destructor
+// CCertExitPlus::~CCertExitPlus -- destructor
 //
 // free memory associated with this instance
 //+--------------------------------------------------------------------------
 
-CCertExitSample::~CCertExitSample()
+CCertExitPlus::~CCertExitPlus()
 {
     SysFreeString(m_strCAName);
     if (NULL != m_pwszRegStorageLoc)
@@ -106,13 +107,13 @@ CCertExitSample::~CCertExitSample()
 
 
 //+--------------------------------------------------------------------------
-// CCertExitSample::Initialize -- initialize for a CA & return interesting Event Mask
+// CCertExitPlus::Initialize -- initialize for a CA & return interesting Event Mask
 //
 // Returns S_OK on success.
 //+--------------------------------------------------------------------------
 
 STDMETHODIMP
-CCertExitSample::Initialize(
+CCertExitPlus::Initialize(
                       /* [in] */ BSTR const strConfig,
                       /* [retval][out] */ LONG __RPC_FAR *pEventMask)
 {
@@ -127,8 +128,8 @@ CCertExitSample::Initialize(
 
     VariantInit(&varValue);
 
-    assert(wcslen(wsz_SAMPLE_DESCRIPTION) < ARRAYSIZE(sz));
-    StringCchCopy(sz, ARRAYSIZE(sz), wsz_SAMPLE_DESCRIPTION);
+    assert(wcslen(wsz_PLUS_DESCRIPTION) < ARRAYSIZE(sz));
+    StringCchCopy(sz, ARRAYSIZE(sz), wsz_PLUS_DESCRIPTION);
     sz[ARRAYSIZE(sz) - 1] = L'\0';
 
     m_strDescription = SysAllocString(sz);
@@ -239,12 +240,12 @@ error:
 
 
 //+--------------------------------------------------------------------------
-// CCertExitSample::_ExpandEnvironmentVariables -- Expand environment variables
+// CCertExitPlus::_ExpandEnvironmentVariables -- Expand environment variables
 //
 //+--------------------------------------------------------------------------
 
 HRESULT
-CCertExitSample::_ExpandEnvironmentVariables(
+CCertExitPlus::_ExpandEnvironmentVariables(
                                        __in LPCWSTR pwszIn,
                                        __out_ecount(cwcOut) LPWSTR pwszOut,
                                        IN DWORD cwcOut)
@@ -340,12 +341,12 @@ error:
 
 
 //+--------------------------------------------------------------------------
-// CCertExitSample::_WriteCertToFile -- write binary certificate to a file
+// CCertExitPlus::_WriteCertToFile -- write binary certificate to a file
 //
 //+--------------------------------------------------------------------------
 
 HRESULT
-CCertExitSample::_WriteCertToFile(
+CCertExitPlus::_WriteCertToFile(
                             IN ICertServerExit *pServer,
                             IN BYTE const *pbCert,
                             IN DWORD cbCert)
@@ -448,12 +449,12 @@ error:
 
 
 //+--------------------------------------------------------------------------
-// CCertExitSample::_NotifyNewCert -- Notify the exit module of a new certificate
+// CCertExitPlus::_NotifyNewCert -- Notify the exit module of a new certificate
 //
 //+--------------------------------------------------------------------------
 
 HRESULT
-CCertExitSample::_NotifyNewCert(
+CCertExitPlus::_NotifyNewCert(
                           /* [in] */ LONG Context)
 {
     HRESULT hr;
@@ -515,12 +516,12 @@ error:
 
 
 //+--------------------------------------------------------------------------
-// CCertExitSample::_NotifyCRLIssued -- Notify the exit module of a new certificate
+// CCertExitPlus::_NotifyCRLIssued -- Notify the exit module of a new certificate
 //
 //+--------------------------------------------------------------------------
 
 HRESULT
-CCertExitSample::_NotifyCRLIssued(
+CCertExitPlus::_NotifyCRLIssued(
                             /* [in] */ LONG Context)
 {
     HRESULT hr;
@@ -637,13 +638,13 @@ error:
 
 
 //+--------------------------------------------------------------------------
-// CCertExitSample::Notify -- Notify the exit module of an event
+// CCertExitPlus::Notify -- Notify the exit module of an event
 //
 // Returns S_OK.
 //+--------------------------------------------------------------------------
 
 STDMETHODIMP
-CCertExitSample::Notify(
+CCertExitPlus::Notify(
                   /* [in] */ LONG ExitEvent,
                   /* [in] */ LONG Context)
 {
@@ -701,14 +702,14 @@ CCertExitSample::Notify(
 
 
 STDMETHODIMP
-CCertExitSample::GetDescription(
+CCertExitPlus::GetDescription(
                           /* [retval][out] */ BSTR *pstrDescription)
 {
     HRESULT hr = S_OK;
     WCHAR sz[MAX_PATH];
 
-    assert(wcslen(wsz_SAMPLE_DESCRIPTION) < ARRAYSIZE(sz));
-    StringCbCopy(sz, sizeof(sz), wsz_SAMPLE_DESCRIPTION);
+    assert(wcslen(wsz_PLUS_DESCRIPTION) < ARRAYSIZE(sz));
+    StringCbCopy(sz, sizeof(sz), wsz_PLUS_DESCRIPTION);
 
     *pstrDescription = SysAllocString(sz);
     if (IsNullBStr(*pstrDescription))
@@ -723,20 +724,20 @@ error:
 
 
 //+--------------------------------------------------------------------------
-// CCertExitSample::GetManageModule
+// CCertExitPlus::GetManageModule
 //
 // Returns S_OK on success.
 //+--------------------------------------------------------------------------
 
 STDMETHODIMP
-CCertExitSample::GetManageModule(
+CCertExitPlus::GetManageModule(
                            /* [out, retval] */ ICertManageModule **ppManageModule)
 {
     HRESULT hr;
 
     *ppManageModule = NULL;
     hr = CoCreateInstance(
-        CLSID_CCertManageExitModuleSample,
+        CLSID_CCertManageExitModulePlus,
         NULL,               // pUnkOuter
         CLSCTX_INPROC_SERVER,
         IID_ICertManageModule,
@@ -752,7 +753,7 @@ error:
 //
 
 STDMETHODIMP
-CCertExitSample::InterfaceSupportsErrorInfo(REFIID riid)
+CCertExitPlus::InterfaceSupportsErrorInfo(REFIID riid)
 {
     int i;
     static const IID *arr[] =

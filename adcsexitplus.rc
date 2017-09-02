@@ -5,6 +5,7 @@
 // PARTICULAR PURPOSE.
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
+// AGPLv3 2017 Martino Dell'Ambrogio
 //
 //  File:       adcsexitplus.rc
 //
@@ -16,9 +17,9 @@
 
 #define VER_FILETYPE                VFT_DLL
 #define VER_FILESUBTYPE             VFT2_UNKNOWN
-#define VER_FILEDESCRIPTION_STR     "Active Directory Certificate Services Sample Exit Module"
+#define VER_FILEDESCRIPTION_STR     "Active Directory Certificate Services Plus Exit Module"
 
-#define VER_INTERNALNAME_STR        "CertExitSample"
+#define VER_INTERNALNAME_STR        "CertExitPlus"
 #define VER_ORIGINALFILENAME_STR    VER_INTERNALNAME_STR
 
 
@@ -55,8 +56,8 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-	IDS_CERTEXIT_DESC            "CertExitSample Class"
-        IDS_CERTMANAGEEXITMODULE_DESC  "CertExitSampleManage Class"
+	IDS_CERTEXIT_DESC            "CertExitPlus Class"
+        IDS_CERTMANAGEEXITMODULE_DESC  "CertExitPlusManage Class"
 END
 
 
