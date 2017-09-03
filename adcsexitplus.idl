@@ -24,7 +24,7 @@ import "certmod.idl";
 //+--------------------------------------------------------------------------
 
 [
-    uuid(d29571d0-c2c8-11d2-b313-00c04f79dc72),
+    uuid(98a8cfd7-f40a-440f-a20b-c994f5abf1f6),
     version(1.0),
     helpstring("CertExitPlus 1.0 Type Library")
 ]
@@ -34,7 +34,7 @@ library CERTEXITPLUSLib
     importlib("stdole2.tlb");
 
     [
-	uuid(d2075560-c2c8-11d2-b313-00c04f79dc72),
+	uuid(1e685868-8ed2-4bf3-87b2-c31b524402cc),
 	helpstring("CertExitPlus Class")
     ]
     coclass CCertExitPlus
@@ -43,7 +43,7 @@ library CERTEXITPLUSLib
     };
 
     [
-	uuid(d3099410-c2c8-11d2-b313-00c04f79dc72),
+	uuid(cc1480c9-c452-4628-9cc9-568de4270c71),
 	helpstring("CertManageExitModulePlus Class")
     ]
     coclass CCertManageExitModulePlus
