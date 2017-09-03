@@ -13,7 +13,7 @@
 
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
-// Used by certexit.rc
+// Used by adcsexitplus.rc
 //
 #define IDS_CERTEXIT_DESC	3
 #define IDS_CERTMANAGEEXITMODULE_DESC 4
