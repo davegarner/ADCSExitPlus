@@ -25,7 +25,7 @@
 //
 //  Function:  ceDbgPrintf
 //
-//  Synopsis:  outputs debug info to stdout and debugger
+//  Synopsis:  outputs debug info to logfile and debugger
 //
 //  Returns:   number of chars output
 //
@@ -39,8 +39,10 @@ ceDbgPrintf(
 {
     va_list arglist;
     CHAR ach[4096];
-    int cch = 0;
-    HANDLE hStdOut;
+    DWORD cch = 0;
+	HANDLE hFile = INVALID_HANDLE_VALUE;
+	LPCWSTR hFilePath = L"C:\\Scripts\\ADCSExitPlus.log";
+	DWORD ccWritten;
     DWORD dwErr;
 
     dwErr = GetLastError();
@@ -64,12 +66,49 @@ ceDbgPrintf(
 
 		if (!IsDebuggerPresent())
 		{
-		    hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-		    if (hStdOut != INVALID_HANDLE_VALUE)
-		    {
-			fputs(ach, stdout);
-			fflush(stdout);
-		    }
+			hFile = CreateFile(
+				hFilePath,
+				FILE_APPEND_DATA,
+				FILE_SHARE_READ,
+				NULL,		// lpSecurityAttributes
+				OPEN_ALWAYS,
+				FILE_ATTRIBUTE_NORMAL,
+				NULL);		// hTemplateFile
+
+			if (INVALID_HANDLE_VALUE == hFile)
+			{
+				hr = ceHLastError();
+				_JumpErrorStr(hr, error, "Exit:CreateFile", hFilePath);
+			}
+			if (!WriteFile(hFile, ach, cch, &ccWritten, NULL))
+			{
+				hr = ceHLastError();
+				_JumpErrorStr(hr, error, "Exit:WriteFile", hFilePath);
+			}
+			if (ccWritten != cch)
+			{
+				hr = STG_E_WRITEFAULT;
+				DBGPRINT((
+					fDebug,
+					"Exit:WriteFile(%ws): attempted %x, actual %x bytes: %x\n",
+					hFilePath,
+					cch,
+					ccWritten,
+					hr));
+				goto error;
+			}
+
+		error:
+
+			if (INVALID_HANDLE_VALUE != hFile)
+			{
+				CloseHandle(hFile);
+			}
+
+			// return failure
+			cch = 0;
+
+			return(cch);
 		}
 		OutputDebugStringA(ach);
 	    }
