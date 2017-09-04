@@ -147,7 +147,7 @@ CCertExitPlus::Initialize(
     }
 
     *pEventMask = ceEXITEVENTS;
-    DBGPRINT((fDebug, "Exit:Initialize(%ws) ==> %x\n", m_strCAName, *pEventMask));
+    DBGPRINT((fDebug, "Exit:Initialize(%ws) ==> %x\nCompiled at " __DATE__ ", " __TIME__ ".\n", m_strCAName, *pEventMask));
 
     // get server callbacks
 
@@ -514,6 +514,71 @@ error:
     return(hr);
 }
 
+//+--------------------------------------------------------------------------
+// CCertExitPlus::_NotifyPendingCert -- Notify the exit module of a pending certificate
+//
+//+--------------------------------------------------------------------------
+
+HRESULT
+CCertExitPlus::_NotifyPendingCert(
+	/* [in] */ LONG Context)
+{
+	HRESULT hr;
+	VARIANT varCert;
+	ICertServerExit *pServer = NULL;
+
+	VariantInit(&varCert);
+
+	DBGPRINT((
+		fDebug,
+		"Exit:_NotifyPendingCert(Context=%ld) ==> Entered\n",
+		Context));
+
+	hr = CoCreateInstance(
+		CLSID_CCertServerExit,
+		NULL,               // pUnkOuter
+		CLSCTX_INPROC_SERVER,
+		IID_ICertServerExit,
+		(VOID **)&pServer);
+	_JumpIfError(hr, error, "Exit:CoCreateInstance");
+
+	hr = pServer->SetContext(Context);
+	_JumpIfError(hr, error, "Exit:SetContext");
+
+	hr = exitGetProperty(
+		pServer,
+		FALSE,	// fRequest,
+		wszPROPRAWCERTIFICATE,
+		PROPTYPE_BINARY,
+		&varCert);
+	_JumpIfErrorStr(
+		hr,
+		error,
+		"Exit:exitGetProperty",
+		wszPROPRAWCERTIFICATE);
+
+	if (VT_BSTR != varCert.vt)
+	{
+		hr = HRESULT_FROM_WIN32(ERROR_INVALID_DATA);
+		_JumpError(hr, error, "Exit:BAD cert var type");
+	}
+
+	hr = _WriteCertToFile(
+		pServer,
+		(BYTE const *)varCert.bstrVal,
+		SysStringByteLen(varCert.bstrVal));
+	_JumpIfError(hr, error, "_WriteCertToFile");
+
+	hr = S_OK;
+
+error:
+	VariantClear(&varCert);
+	if (NULL != pServer)
+	{
+		pServer->Release();
+	}
+	return(hr);
+}
 
 //+--------------------------------------------------------------------------
 // CCertExitPlus::_NotifyCRLIssued -- Notify the exit module of a new certificate
@@ -651,6 +716,12 @@ CCertExitPlus::Notify(
     char *psz = "UNKNOWN EVENT";
     HRESULT hr = S_OK;
 
+	DBGPRINT((
+		fDebug,
+		"Exit:Notify(ExitEvent=%ld, Context=%ld) ==> Entered\n",
+		ExitEvent,
+		Context));
+
     switch (ExitEvent)
     {
     case EXITEVENT_CERTISSUED:
@@ -659,6 +730,7 @@ CCertExitPlus::Notify(
         break;
 
     case EXITEVENT_CERTPENDING:
+		hr = _NotifyPendingCert(Context);
         psz = "certpending";
         break;
 

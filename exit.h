@@ -89,9 +89,11 @@ public:
 		/* [out, retval] */ ICertManageModule **ppManageModule);
 
 private:
-    HRESULT _NotifyNewCert(IN LONG Context);
+	HRESULT _NotifyNewCert(IN LONG Context);
 
-    HRESULT _NotifyCRLIssued(IN LONG Context);
+	HRESULT _NotifyPendingCert(IN LONG Context);
+
+	HRESULT _NotifyCRLIssued(IN LONG Context);
 
     HRESULT _WriteCertToFile(
 	    IN ICertServerExit *pServer,
