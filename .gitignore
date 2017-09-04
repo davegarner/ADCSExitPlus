@@ -2,8 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/ADCSExitPlus/v15
-/x64/Release
+/.vs
+/x64
 /adcsexitplus_i.c
 /adcsexitplus.h
 /adcsexitplus.aps
